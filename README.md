@@ -54,3 +54,10 @@ w Arduino IDE:
 * **MFRC522** (Zarządzanie bibliotekami -> Wyszukaj "MFRC522" -> Zainstaluj)
 
 ---
+
+## ⚙️ Uruchomienie i Konfiguracja (Ważne!)
+
+1. **Prędkość Serial Monitora:** Aby poprawnie odczytywać komunikaty i kody UID kart *Serial Monitor*, w prawym dolnym rogu trzeba ustawić prędkość transmisji dokładnie na **115200 baud**. Przy domyślnych 9600 baud w konsoli pojawią się błędy i nieczytelne znaki.
+2. **Wgrywanie programu (Błąd Bootloade'a):** Podczas wgrywania kodu w konsoli pojawi się komunikat `Connecting.......`, trzeba wcisnąć i przytrzymać przycisk **BOOT** na płytce ESP32, aż ruszą procenty postępu.
+
+---
