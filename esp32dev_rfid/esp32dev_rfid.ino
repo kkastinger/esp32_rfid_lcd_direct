@@ -19,7 +19,7 @@ void setup() {
   lcd.begin(16, 2);
   lcd.clear();
   lcd.setCursor(0, 0);
-  lcd.print("Inicjalizacja...");
+  lcd.print("Initialization...");
   
   // SPI and RFID initialization
   SPI.begin();
@@ -30,7 +30,7 @@ void setup() {
   // Standby/Start screen
   lcd.clear();
   lcd.setCursor(0, 0);
-  lcd.print("Zbliz karte RFID");
+  lcd.print("Scan RFID card");
   Serial.println("System ready. Scan card...");
 }
 
@@ -63,7 +63,7 @@ void loop() {
   if (cardUID == "A52BD6AB") {
     // first card authorization
     lcd.setCursor(0, 0);
-    lcd.print("Witaj User 1!");      
+    lcd.print("Welcome User 1!");      
     lcd.setCursor(0, 1);
     lcd.print("ID: " + cardUID);    
     Serial.println("Access granted for: User 1");
@@ -71,7 +71,7 @@ void loop() {
   } else if (cardUID == "74BED6FE") {
     // second card authorization
     lcd.setCursor(0, 0);
-    lcd.print("Witaj User 2!");     
+    lcd.print("Welcome User 2!");     
     lcd.setCursor(0, 1);
     lcd.print("ID: " + cardUID);    
     Serial.println("Access granted for: User 2");
@@ -79,9 +79,9 @@ void loop() {
   } else {
     // Unknown card / Access denied
     lcd.setCursor(0, 0);
-    lcd.print("Nieznana karta!");
+    lcd.print("Card unknown!");
     lcd.setCursor(0, 1);
-    lcd.print("Brak dostepu!");
+    lcd.print("Access denied!");
     Serial.println("ALERT: Unauthorized access attempt!");
   }
 
@@ -94,5 +94,5 @@ void loop() {
   // Return to standby screen
   lcd.clear();
   lcd.setCursor(0, 0);
-  lcd.print("Zbliz karte RFID");
+  lcd.print("Scan RFID card");
 }
