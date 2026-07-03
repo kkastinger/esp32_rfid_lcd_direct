@@ -1,63 +1,61 @@
-# System Kontroli Dostępu ESP32 + RFID RC522 + LCD 1602
+# ESP32 + RFID RC522 + LCD 1602 Access Control System
 
-Projekt systemu kontroli dostępu oparty na mikrokontrolerze **ESP32 (HW-394)** oraz czytniku kart **RFID RC522**. 
-Kod rozpoznaje konkretne numery UID kart i wyświetla dedykowane Witaj User x , a dla nieznanych kart blokuje dostęp
+An access control system project based on the **ESP32 (HW-394)** microcontroller and the **RFID RC522** card reader. 
+The code recognizes specific card UID numbers and displays a dedicated "Witaj User x" greeting, while blocking access for unknown cards.
 
-### 🚀 Cechy projektu:
-* **Bez konwertera I2C:** Wyświetlacz LCD 1602 jest podłączony bezpośrednio do ESP32 w trybie 4-bitowym.
-* **Lewa stroma esp(Breadboard):** Kod i połączenia zostały zaprojektowane tak, aby wykorzystywać piny wyłącznie z **jednej (lewej) strony ESP32**.
-* **Brak dodatkowych przewodów żeńskich:** Połączenie zasilania 5V oraz masy (GND) "pod brzuchem" ESP32 bezpośrednio do bocznych szyn zasilających płytki stykowej.
-
+### 🚀 Key Features:
+* **No I2C Module Required:** The LCD 1602 display is connected directly to the ESP32 in 4-bit mode.
+* **ESP32 Left-Side Optimization (Breadboard):** The code and connections are designed to use pins exclusively from the **left side of the ESP32**.
+* **No Extra Female Jumper Wires:** The 5V power and Ground (GND) connections are routed "under the belly" of the ESP32 directly to the breadboard's side power rails.
 
 ---
 
-## 📸 Zdjęcia projektu
-*(Tutaj możesz wstawić swoje zdjęcia – wystarczy, że wrzucisz je do folderu images/ i zmienisz nazwy poniżej)*
+## 📸 Project Media
 
-![Widok ogólny](images/rfid1.jpg)
+![Project Overview](images/rfid1.jpg)
 ![RFID request](images/rfid4.jpg)
 ![User1](images/rfid2.jpg)
 ![User2](images/rfid3.jpg)
 
 ---
 
-## 🛠️ Schemat połączeń
+## 🛠️ Wiring Diagram
 
-### Wyświetlacz LCD 1602
-Wszystkie linie danych podłączone są do lewej strony ESP32, a zasilanie pobierane jest z bocznej szyny zasilającej 5V (zmostkowanej z pinu VN).
+### LCD 1602 Display
+All data lines are connected to the left side of the ESP32, and power is drawn from the 5V side power rail (bridged from the VN pin).
 
-| Pin LCD | Nazwa | Podłączenie w ESP32 / Płytka |
+| LCD Pin | Function | ESP32 Pin / Breadboard Connection |
 | :---: | :--- | :--- |
-| **1 & 16** | VSS / K | **GND** (Niebieska szyna) |
-| **2 & 15** | VDD / A | **5V / VN** (Czerwona szyna) |
-| **3** | V0 | **Środkowy pin potencjometru** (Kontrast) |
-| **4** | RS | **D15** (Lewa strona) |
-| **5** | R/W | **GND** (Niebieska szyna) |
-| **6** | E | **D4** (Lewa strona) |
-| **11-14**| D4 - D7 | **D16, D17, D21, D22** (Kolejno w rzędzie A) |
+| **1 & 16** | VSS / K | **GND** (Blue Rail) |
+| **2 & 15** | VDD / A | **5V / VN** (Red Rail) |
+| **3** | V0 | **Potentiometer Middle Pin** (Contrast adjustment) |
+| **4** | RS | **D15** (Left Side) |
+| **5** | R/W | **GND** (Blue Rail) |
+| **6** | E | **D4** (Left Side) |
+| **11-14**| D4 - D7 | **D16, D17, D21, D22** (Sequentially in Row A) |
 
-### Czytnik RFID RC522
-Czytnik komunikuje się przez magistralę SPI na bezpiecznym napięciu 3.3V.
+### RFID RC522 Reader
+The reader communicates via the SPI bus using a safe 3.3V voltage level.
 
-* **3.3V** -> Pin **3V3** (ESP32 lewa strona)
-* **GND** -> Pin **GND** (ESP32 lewa strona)
-* **SDA** -> Pin **D5**
-* **SCK** -> Pin **D18**
-* **MISO** -> Pin **D19**
-* **MOSI** -> Pin **D23**
-* **RST** -> Pin **D2**
-
----
-
-## 💻 Wymagane biblioteki
-w Arduino IDE:
-* **MFRC522** (Zarządzanie bibliotekami -> Wyszukaj "MFRC522" -> Zainstaluj)
+* **3.3V** -> **3V3** pin (ESP32 left side)
+* **GND** -> **GND** pin (ESP32 left side)
+* **SDA** -> **D5** pin
+* **SCK** -> **D18** pin
+* **MISO** -> **D19** pin
+* **MOSI** -> **D23** pin
+* **RST** -> **D2** pin
 
 ---
 
-## ⚙️ Uruchomienie i Konfiguracja (Ważne!)
+## 💻 Required Libraries
+In the Arduino IDE:
+* **MFRC522** (Library Manager -> Search "MFRC522" -> Install)
 
-1. **Prędkość Serial Monitora:** Aby poprawnie odczytywać komunikaty i kody UID kart *Serial Monitor*, w prawym dolnym rogu trzeba ustawić prędkość transmisji dokładnie na **115200 baud**. Przy domyślnych 9600 baud w konsoli pojawią się błędy i nieczytelne znaki.
-2. **Wgrywanie programu (Błąd Bootloade'a):** Podczas wgrywania kodu w konsoli pojawi się komunikat `Connecting.......`, trzeba wcisnąć i przytrzymać przycisk **BOOT** na płytce ESP32, aż ruszą procenty postępu.
+---
+
+## ⚙️ Setup & Configuration (Important!)
+
+1. **Serial Monitor Baud Rate:** To correctly read messages and card UID codes, you must open the *Serial Monitor* and set the baud rate to exactly **115200 baud** in the bottom right corner. Leaving it at the default 9600 baud will cause errors and corrupted characters (garbage text).
+2. **Uploading the Program (Bootloader Workaround):** When uploading the code, if the console shows the `Connecting.......` message, you need to press and hold the **BOOT** button on the ESP32 board until the flashing percentage progress bar starts moving.
 
 ---
