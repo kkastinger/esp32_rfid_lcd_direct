@@ -5,7 +5,7 @@ Kod rozpoznaje konkretne numery UID kart i wyświetla dedykowane Witaj User x , 
 
 ### 🚀 Cechy projektu:
 * **Bez konwertera I2C:** Wyświetlacz LCD 1602 jest podłączony bezpośrednio do ESP32 w trybie 4-bitowym.
-* **Trik z małą płytką stykową (Breadboard):** Kod i połączenia zostały zaprojektowane tak, aby wykorzystywać piny wyłącznie z **jednej (lewej) strony ESP32**.
+* **Lewa stroma esp(Breadboard):** Kod i połączenia zostały zaprojektowane tak, aby wykorzystywać piny wyłącznie z **jednej (lewej) strony ESP32**.
 * **Brak dodatkowych przewodów żeńskich:** Połączenie zasilania 5V oraz masy (GND) "pod brzuchem" ESP32 bezpośrednio do bocznych szyn zasilających płytki stykowej.
 
 
