@@ -10,7 +10,7 @@ The code recognizes specific card UID numbers and displays a dedicated "Witaj Us
 
 ---
 
-## 📸 Project Media
+## 📸 Gallery
 
 ![Project Overview](images/rfid1.jpg)
 ![RFID request](images/rfid4.jpg)
@@ -19,7 +19,7 @@ The code recognizes specific card UID numbers and displays a dedicated "Witaj Us
 
 ---
 
-## 🛠️ Wiring Diagram
+## 🛠️ Wiring
 
 ### LCD 1602 Display
 All data lines are connected to the left side of the ESP32, and power is drawn from the 5V side power rail (bridged from the VN pin).
@@ -47,13 +47,13 @@ The reader communicates via the SPI bus using a safe 3.3V voltage level.
 
 ---
 
-## 💻 Required Libraries
+## 💻 Libraries
 In the Arduino IDE:
 * **MFRC522** (Library Manager -> Search "MFRC522" -> Install)
 
 ---
 
-## ⚙️ Setup & Configuration (Important!)
+## ⚙️ Setup & Configuration
 
 1. **Serial Monitor Baud Rate:** To correctly read messages and card UID codes, you must open the *Serial Monitor* and set the baud rate to exactly **115200 baud** in the bottom right corner. Leaving it at the default 9600 baud will cause errors and corrupted characters (garbage text).
 2. **Uploading the Program (Bootloader Workaround):** When uploading the code, if the console shows the `Connecting.......` message, you need to press and hold the **BOOT** button on the ESP32 board until the flashing percentage progress bar starts moving.
