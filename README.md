@@ -1,4 +1,11 @@
 # ESP32 + RFID RC522 + LCD 1602 Access Control System
+<p align="left">
+  <img src="https://img.shields.io/badge/ESP32-E7352C?style=for-the-badge&logo=espressif&logoColor=white" alt="ESP32">
+  <img src="https://img.shields.io/badge/RFID-NFC-673AB7?style=for-the-badge&logo=nfc&logoColor=white" alt="RFID">
+  <img src="https://img.shields.io/badge/LCD-Display-3F51B5?style=for-the-badge&logo=display&logoColor=white" alt="LCD">
+  <img src="https://img.shields.io/badge/Access-Control-E91E63?style=for-the-badge&logo=key&logoColor=white" alt="Access Control">
+  <img src="https://img.shields.io/badge/C%2B%2B-00599C?style=for-the-badge&logo=c%2B%2B&logoColor=white" alt="C++">
+</p>
 
 An access control system project based on the **ESP32 (HW-394)** microcontroller and the **RFID RC522** card reader. 
 The code recognizes specific card UID numbers and displays a dedicated "Witaj User x" greeting, while blocking access for unknown cards.
