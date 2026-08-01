@@ -1,4 +1,4 @@
-# ESP32 + RFID RC522 + LCD 1602 Access Control System
+# 🔑 ESP32 + RFID RC522 + LCD 1602 Access Control System
 <p align="left">
   <img src="https://img.shields.io/badge/ESP32-E7352C?style=for-the-badge&logo=espressif&logoColor=white" alt="ESP32">
   <img src="https://img.shields.io/badge/RFID-NFC-673AB7?style=for-the-badge&logo=nfc&logoColor=white" alt="RFID">
